@@ -1,3 +1,8 @@
+ //' Add Two Numbers
+ //'
+ //' Return the sum of a vector of numbers.
+ //' @param Numeric Vector X
+ //' @export
 #include <Rcpp.h>
 using namespace Rcpp;
 
@@ -10,6 +15,7 @@ using namespace Rcpp;
 //   http://adv-r.had.co.nz/Rcpp.html
 //   http://gallery.rcpp.org/
 //
+
 
 // [[Rcpp::export]]
 double sumC(NumericVector x) {

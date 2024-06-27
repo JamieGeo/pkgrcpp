@@ -1,3 +1,9 @@
+ //' Add Two Numbers
+ //'
+ //' Return the sum of two numbers.
+ //' @param x
+ //' @param y
+ //' @export
 #include <Rcpp.h>
 using namespace Rcpp;
 
