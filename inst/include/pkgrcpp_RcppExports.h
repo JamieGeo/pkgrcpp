@@ -45,6 +45,48 @@ namespace pkgrcpp {
         return Rcpp::as<double >(rcpp_result_gen);
     }
 
+    inline double approx_pi(const int N) {
+        typedef SEXP(*Ptr_approx_pi)(SEXP);
+        static Ptr_approx_pi p_approx_pi = NULL;
+        if (p_approx_pi == NULL) {
+            validateSignature("double(*approx_pi)(const int)");
+            p_approx_pi = (Ptr_approx_pi)R_GetCCallable("pkgrcpp", "_pkgrcpp_approx_pi");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_approx_pi(Shield<SEXP>(Rcpp::wrap(N)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (Rcpp::internal::isLongjumpSentinel(rcpp_result_gen))
+            throw Rcpp::LongjumpException(rcpp_result_gen);
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double dq_approx_pi(const int N) {
+        typedef SEXP(*Ptr_dq_approx_pi)(SEXP);
+        static Ptr_dq_approx_pi p_dq_approx_pi = NULL;
+        if (p_dq_approx_pi == NULL) {
+            validateSignature("double(*dq_approx_pi)(const int)");
+            p_dq_approx_pi = (Ptr_dq_approx_pi)R_GetCCallable("pkgrcpp", "_pkgrcpp_dq_approx_pi");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_dq_approx_pi(Shield<SEXP>(Rcpp::wrap(N)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (Rcpp::internal::isLongjumpSentinel(rcpp_result_gen))
+            throw Rcpp::LongjumpException(rcpp_result_gen);
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
     inline double sumC(NumericVector x) {
         typedef SEXP(*Ptr_sumC)(SEXP);
         static Ptr_sumC p_sumC = NULL;

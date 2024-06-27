@@ -5,6 +5,17 @@ add_cpp <- function(x, y) {
     .Call(`_pkgrcpp_add_cpp`, x, y)
 }
 
+approx_pi <- function(N) {
+    .Call(`_pkgrcpp_approx_pi`, N)
+}
+
+#' Add Two Numbers
+NULL
+
+dq_approx_pi <- function(N) {
+    .Call(`_pkgrcpp_dq_approx_pi`, N)
+}
+
 sumC <- function(x) {
     .Call(`_pkgrcpp_sumC`, x)
 }
