@@ -9,3 +9,7 @@ sumC <- function(x) {
     .Call(`_pkgrcpp_sumC`, x)
 }
 
+# Register entry points for exported C++ functions
+methods::setLoadAction(function(ns) {
+    .Call(`_pkgrcpp_RcppExport_registerCCallable`)
+})
